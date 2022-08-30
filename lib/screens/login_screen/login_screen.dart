@@ -4,6 +4,8 @@ import 'package:hr_app/shared/components/components.dart';
 import 'package:hr_app/util/components.dart';
 import 'package:hr_app/util/constants/Colors.dart';
 
+import '../raster_password_screen/raster_password_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   static const routName = '/login-screen';
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,14 +25,22 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       body: Stack(children: [
-        SizedBox(
+        SizedBox.expand(
+            child: FittedBox(
+          fit: BoxFit.cover,
+          child: Image.asset(
+            "assets/images/back.png",
+          ),
+        )),
+
+        /*    SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: Image.asset(
-            'assets/images/login.png',
+            'assets/images/back.png',
             fit: BoxFit.fill,
           ),
-        ),
+        ),*/
         Center(
           child: FractionallySizedBox(
             widthFactor: .9,
@@ -40,11 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     'LogIn',
-                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   defaultFormField(
                     controller: emailController,
@@ -91,11 +101,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       border: OutlineInputBorder(),
                     ),
                   ),*/
-                  SizedBox(
-                    height: 10,
+                  const SizedBox(
+                    height: 30,
                   ),
                   SizedBox(
-                    width: width * .7,
+                    width: width * .9,
                     child: ElevatedButton(
                       child: const Text('Login'),
                       onPressed: () {
@@ -107,7 +117,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateTo(context, RasterPasswordScreen());
+                    },
                     child: const Text('Forget Password?'),
                     style: TextButton.styleFrom(
                       primary: KAppSecondColor,
@@ -119,5 +131,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         )
       ]),
-    );}
+    );
+  }
 }

@@ -43,6 +43,7 @@ dependencies:
   dio: ^4.0.6
   another_flushbar: ^1.10.29
   dotted_border: ^2.0.0+2
+  pin_code_fields: ^7.4.0
 
 dev_dependencies:
   flutter_test:
