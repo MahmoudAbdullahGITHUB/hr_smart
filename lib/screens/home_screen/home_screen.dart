@@ -4,6 +4,8 @@ import 'package:hr_app/shared/components/components.dart';
 import 'package:hr_app/util/components.dart';
 import 'package:hr_app/util/constants/Colors.dart';
 
+import '../vacation_request _screens/add_vacation_request _screen/add_vacation_request _screen.dart';
+
 class HomeScreen extends StatefulWidget {
   static const routName = '/home-screen';
 
@@ -55,7 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 trailing: CircleAvatar(
                     child: IconButton(
                       icon: Icon(Icons.add),
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateTo(context, AddVacationScreen());
+                      },
                     )),
               ),
             );
