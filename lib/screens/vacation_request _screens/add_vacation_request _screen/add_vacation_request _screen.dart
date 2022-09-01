@@ -19,8 +19,8 @@ class AddVacationScreen extends StatefulWidget {
 
 class _AddVacationScreenState extends State<AddVacationScreen> {
   final formSingUpKey = GlobalKey<FormState>();
-  final toTimeTextController = TextEditingController();
-  final fromTimeTextController = TextEditingController();
+  final toDateTextController = TextEditingController();
+  final fromDateTextController = TextEditingController();
   final descrpationTextController = TextEditingController();
   final daysNumberTextController = TextEditingController();
   String selectMonth = '';
@@ -135,65 +135,61 @@ class _AddVacationScreenState extends State<AddVacationScreen> {
                                   Row(
                                     children: [
                                       Expanded(
-                                        child: CustomEditTextFormFiled()
-                                            .MyInputField(
-                                                label: 'From Date',
-                                                readOnly: true,
-                                                onTap: () async {
-                                                  TimeOfDay initialTime =
-                                                      TimeOfDay.now();
-                                                  TimeOfDay? pickedTime =
-                                                      await showTimePicker(
-                                                    context: context,
-                                                    initialTime: initialTime,
-                                                  );
-                                                  /*controller.fromTimeTextController.text =
-                                            "${pickedTime!.hour.toString()}:${pickedTime!.minute.toString()}";*/
-                                                  final now =
-                                                      new DateTime.now();
-                                                  final dt = DateTime(
-                                                      now.year,
-                                                      now.month,
-                                                      now.day,
-                                                      pickedTime!.hour,
-                                                      pickedTime.minute);
-                                                  fromTimeTextController.text =
-                                                      "${Intl.DateFormat('HH:mm').format(dt)}";
-                                                },
-                                                controller:
-                                                    fromTimeTextController,
-                                                context: context),
+                                        child:   CustomEditTextFormFiled().MyInputField(
+                                            prefixIcon: Icon(
+                                              Icons.date_range,
+                                              color: KAppSecondColor,
+                                            ),
+                                            label: 'From Date ',
+                                            textInputType: TextInputType.text,
+                                            controller:fromDateTextController,
+                                            onTap: () async {
+                                              DateTime date = DateTime(1900);
+                                              FocusScope.of(context)
+                                                  .requestFocus(new FocusNode());
+
+                                              date = (await showDatePicker(
+                                                context: context,
+                                                initialDate: DateTime.now(),
+                                                firstDate: DateTime(1900),
+                                                lastDate: DateTime.now(),
+                                              ))!;
+
+                                              fromDateTextController.text =
+                                                  Intl.DateFormat("yyyy-MM-dd")
+                                                      .format(date);
+                                            },
+                                            context: context),
                                       ),
                                       SizedBox(
                                         width: 10.0,
                                       ),
                                       Expanded(
-                                        child: CustomEditTextFormFiled()
-                                            .MyInputField(
-                                                label: 'To Date',
-                                                readOnly: true,
-                                                onTap: () async {
-                                                  TimeOfDay initialTime =
-                                                      TimeOfDay.now();
-                                                  TimeOfDay? pickedTime =
-                                                      await showTimePicker(
-                                                    context: context,
-                                                    initialTime: initialTime,
-                                                  );
-                                                  final now =
-                                                      new DateTime.now();
-                                                  final dt = DateTime(
-                                                      now.year,
-                                                      now.month,
-                                                      now.day,
-                                                      pickedTime!.hour,
-                                                      pickedTime.minute);
-                                                  toTimeTextController.text =
-                                                      "${Intl.DateFormat('HH:mm').format(dt)}";
-                                                },
-                                                controller:
-                                                    toTimeTextController,
-                                                context: context),
+                                        child:  CustomEditTextFormFiled().MyInputField(
+                                            prefixIcon: Icon(
+                                              Icons.date_range,
+                                              color: KAppSecondColor,
+                                            ),
+                                            label: 'To Date ',
+                                            textInputType: TextInputType.text,
+                                            controller:toDateTextController,
+                                            onTap: () async {
+                                              DateTime date = DateTime(1900);
+                                              FocusScope.of(context)
+                                                  .requestFocus(new FocusNode());
+
+                                              date = (await showDatePicker(
+                                                context: context,
+                                                initialDate: DateTime.now(),
+                                                firstDate: DateTime(1900),
+                                                lastDate: DateTime.now(),
+                                              ))!;
+
+                                              toDateTextController.text =
+                                                  Intl.DateFormat("yyyy-MM-dd")
+                                                      .format(date);
+                                            },
+                                            context: context),
                                       )
                                     ],
                                   ),
