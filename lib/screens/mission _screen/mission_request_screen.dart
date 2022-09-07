@@ -8,16 +8,16 @@ import 'package:hr_app/util/constants/Colors.dart';
 import 'package:hr_app/util/editTextFormFiled.dart';
 import 'package:intl/intl.dart' as Intl;
 
-class VacationRequestScreen extends StatefulWidget {
+class MissionRequestScreen extends StatefulWidget {
   static const routName = '/home-screen';
 
-  const VacationRequestScreen({Key? key}) : super(key: key);
+  const MissionRequestScreen({Key? key}) : super(key: key);
 
   @override
-  State<VacationRequestScreen> createState() => _VacationRequestScreenState();
+  State<MissionRequestScreen> createState() => _MissionRequestScreenState();
 }
 
-class _VacationRequestScreenState extends State<VacationRequestScreen> {
+class _MissionRequestScreenState extends State<MissionRequestScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -28,7 +28,7 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
             appBar: AppBar(
               backgroundColor: KAppColor,
               centerTitle: false,
-              title: Text('Vacation request ',
+              title: Text('Mission request ',
                   style: TextStyle(color: Colors.white)),
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
@@ -96,10 +96,26 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
                                 ),
                                 Row(
                                   children: [
+                                    Icon(
+                                      Icons.date_range_outlined,
+                                      color: Colors.black,
+                                      size: 16.0,
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Text('20 - 06 - 2022',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black)),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.date_range_outlined,
+                                          Icons.access_time_outlined,
                                           color: Colors.black,
                                           size: 16.0,
                                         ),
@@ -109,12 +125,12 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
                                                 .textTheme
                                                 .subtitle2!
                                                 .copyWith(
-                                                fontSize: 14.0,
-                                                color: Colors.black)),
+                                                    fontSize: 14.0,
+                                                    color: Colors.black)),
                                         SizedBox(
                                           width: 10.0,
                                         ),
-                                        Text('20 - 06 - 2022',
+                                        Text('10:00 AM',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black)),
@@ -125,9 +141,8 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
                                     ),
                                     Row(
                                       children: [
-
                                         Icon(
-                                          Icons.date_range_outlined,
+                                          Icons.access_time_outlined,
                                           color: Colors.black,
                                           size: 16.0,
                                         ),
@@ -137,12 +152,12 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
                                                 .textTheme
                                                 .subtitle2!
                                                 .copyWith(
-                                                fontSize: 14.0,
-                                                color: Colors.black)),
+                                                    fontSize: 14.0,
+                                                    color: Colors.black)),
                                         SizedBox(
                                           width: 10.0,
                                         ),
-                                        Text('20 - 06 - 2022',
+                                        Text('12:00 AM',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black)),
@@ -150,7 +165,7 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
                                     ),
                                   ],
                                 ),
-                                Text("Total Days /  6 Days ",
+                                Text("Total Time /  6 Hours ",
                                     textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
@@ -158,6 +173,23 @@ class _VacationRequestScreenState extends State<VacationRequestScreen> {
                                         .copyWith(
                                             fontSize: 14.0,
                                             color: Colors.black)),
+                                Text("Mission Type ",
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle2!
+                                        .copyWith(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: KAppSecondColor)),
+                                Text("""Mission Descrpation Mission Descrpation Mission Descrpation Mission Descrpation  Mission   Descrpation Mission Descrpation Mission Descrpation Mission Descrpation Mission Descrpation Mission DescrpationMission Descrpation Mission Descrpation """,
+                                    textAlign: TextAlign.start,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle2!
+                                        .copyWith(
+                                        fontSize: 14.0,
+                                        color: Colors.grey)),
                               ],
                             )),
                       ],
